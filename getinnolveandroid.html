@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sri Lanka Sea Turtles</title>
+	<style>
+	
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+			background-color: #008080;
+			color: white;
+		}
+	body {
+            background-image: url('OIP%20(1).jpeg');
+            background-size:490px 400px;
+            background-position: center;
+			}
+
+		.menu-btn {
+			display: none;
+			cursor: pointer;
+			position: relative;
+			padding: 20px;
+			z-index: 1;
+		}
+
+		.menu-btn span {
+			display: block;
+			background-color: white;
+			height: 2px;
+			width: 25px;
+			margin-bottom: 5px;
+		}
+
+		nav {
+			flex: 1;
+			text-align: right;
+		}
+
+		nav a {
+			display: inline-block;
+			margin-left: 20px;
+			color: white;
+			text-decoration: none;
+		}
+        	section {
+			margin: 20px auto;
+			padding: 20px;
+			max-width: 700px;
+			background-color: white;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+			text-align: justify;
+            }
+
+	
+       /* For desktop */
+header img {
+  width: 75px;
+  height: 75px;
+}
+
+
+        @media (max-width: 500px) {
+            img {
+                width: 100%;
+                height: auto;
+            }
+header img {
+    width: 55px;
+    height: 55px;
+  }
+
+
+			.menu-btn {
+				display: block;
+			}
+
+			nav {
+				display: none;
+				flex-basis: 100%;
+				margin: 20px 0;
+			}
+
+			nav.active {
+				display: block;
+			}
+
+			nav a {
+				display: block;
+				margin: 10px 0;
+			}
+		}
+		
+		footer {
+			background-color: #008080;
+			color: white;
+			padding: 10px;
+			text-align: center;
+		}
+
+		footer p {
+			margin: 0;
+		 }
+		 table {
+  border: 3px solid black;
+}
+
+	</style>
+</head>
+<body>
+	<header>
+	<h1><img src="logo.png" alt="">Sri Lanka Sea Turtles</h1>
+		<div class="menu-btn">
+			<span></span>
+		</div>
+		<nav>
+			<a href="homepageandroid.html">Home</a>
+				<a href="pag2android.html">About Turtle hatcheries</a>
+				<a href="7android.html">Purchase and Donate</a>
+				<a href="https://www.oceanicsociety.org/our-work/sea-turtle-conservation/">Sea Turtle Conservation</a>
+				<a href="pag2android.html">Contact Us</a>
+		</nav>
+	</header>
+	
+	<script>
+	// toggle navigation menu
+	var menuBtn = document.querySelector('.menu-btn');
+	var nav = document.querySelector('nav');
+
+	menuBtn.addEventListener('click', function() {
+		nav.classList.toggle('active');
+	});
+</script>
+<section>
+      <h2>About Turtle Conservation in Sri Lanka</h2>
+      <img src="https://srilankanexpeditions.co.uk/images/unique-experiences/turtle-study-and-conservation-experience/turtle-study-and-conservation-experience1.jpg" alt="turtle conservation sri lanka" width="700" height="600">
+      <p>
+        Sri Lanka is home to five species of sea turtles, all of which are
+        endangered due to habitat destruction, pollution, and hunting. Turtle
+        conservation projects in Sri Lanka work to protect nesting sites,
+        monitor turtle populations, and raise awareness about the importance of
+        sea turtle conservation.
+      </p>
+      <h2>Volunteering with Turtle Conservation Projects in Sri Lanka</h2>
+      <p>
+        There are many organizations and projects throughout Sri Lanka that
+        focus on sea turtle conservation. These projects offer a variety of
+        opportunities for volunteers to get involved, including:
+      </p>
+      <ul>
+        <li>Monitoring and recording turtle nesting activity</li>
+        <li>Assisting with beach patrols to protect turtle nests from predators and poachers</li>
+        <li>Participating in hatchling releases</li>
+        <li>Helping with the care and rehabilitation of injured turtles</li>
+        <li>Conducting research on turtle behavior and ecology</li>
+      </ul>
+      <p>By volunteering with a sea turtle conservation project in Sri Lanka, you can help protect these incredible creatures and ensure their survival for generations to come.</p>
+    </section>
+    <footer>
+      <p>&copy; 2023 Bentota Turtle Hatchery</p>
+    </footer>
+  </body>
+</html>

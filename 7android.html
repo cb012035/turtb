@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Purchase and Donation</title>
+<style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #008080;
+            color: white;
+        }
+
+       body {
+            background-image: url('pexels.jpg');
+            background-size: 500px 500px;
+            background-position: center;
+			}
+
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            position: relative;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .menu-btn span {
+            display: block;
+            background-color: white;
+            height: 2px;
+            width: 25px;
+            margin-bottom: 5px;
+        }
+
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+
+        nav a {
+            display: inline-block;
+            margin-left: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 700px;
+            background-color: white;
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+            text-align: justify;
+			        }
+#payment-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  }
+
+  #payment-form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  #payment-form h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .form-group input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .form-group input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  .form-group button[type="submit"] {
+    background-color: #008080;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .form-group button[type="submit"]:hover {
+    background-color: #005656;
+  }
+
+
+
+/* For desktop */
+header img {
+  width: 75px;
+  height: 75px;
+}
+
+
+        @media (max-width: 500px) {
+            img {
+                width: 100%;
+                height: auto;
+            }
+header img {
+    width: 55px;
+    height: 55px;
+  }
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-basis: 100%;
+                margin: 20px 0;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+        
+        footer {
+            background-color: #008080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+		table {
+			border-collapse: collapse;
+			border: 3px solid black;
+		}
+
+		th, td {
+			border: 3px solid black;
+			padding: 10px;
+		}
+    </style>
+</head>
+<body>
+	<header>
+		
+		<h1><img src="logo.png" alt="">Purchase and Donation</h1>
+		<div class="menu-btn">
+			<span></span>
+		</div>
+		<nav>
+			<a href="homepageandroid.html">Home</a>
+				<a href="pag2android.html">About Turtle hatcheries</a>
+				
+				<a href="https://www.oceanicsociety.org/our-work/sea-turtle-conservation/">Sea Turtle Conservation</a>
+				<a href="getinnolveandroid.html">Get Involved</a>
+				<a href="pag2android.html">Contact Us</a>
+		</nav>
+	</header>
+	
+	
+	<script>
+    // toggle navigation menu
+    var menuBtn = document.querySelector('.menu-btn');
+    var nav = document.querySelector('nav');
+
+    menuBtn.addEventListener('click', function() {
+        nav.classList.toggle('active');
+    });
+    </script>
+<section >
+  <h2>Adopt a Turtle</h2>
+    <div class="container" style="text-align: center;">
+  <img src="https://www.womenwork.org/wp-content/uploads/2010/05/Adopt-a-Turtle.jpg" alt="Adopt a Turtle" width="500" height="400">
+
+
+  </div>
+  <p>For a one-time donation of $50, you can adopt a turtle and help us fund its protection and monitoring.</p>
+</section>
+<section>
+  <h2>Nest Sponsorship</h2>
+   <div class="container" style="text-align: center;">
+  <img src="https://th.bing.com/th/id/R.cdfd454d057d6bf0198b0fa667e30541?rik=tzZcRsd%2bR2%2fJKA&amp;riu=http%3a%2f%2farcasguatemala.org%2fwp-content%2fuploads%2farcas-sponsor-a-nest.jpg&amp;ehk=QJvQazNGL088%2fV4sj8%2fScqtOhyzuqn1VPzR7UmNYpyk%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" alt="Nest Sponsorship turtle" width="500" height="400">
+   </div>
+  <p>For a one-time donation of $100, you can sponsor a turtle nest and help us protect and monitor the hatchlings.</p>
+</section>
+<section>
+  <h2>Equipment Donation</h2>
+   <div class="container" style="text-align: center;">
+  <img src="https://seaturtleexploration.com/wp-content/uploads/2015/03/IMG_9748-1024x768.jpg" alt="Picture of a sea turtle" width="500" height="400">
+   </div>
+  <p>For a one-time donation of $500, you can help us purchase equipment such as GPS devices, binoculars, and data loggers to aid in our conservation work.</p>
+</section>
+<section>
+  <h2>Research Donation</h2>
+   <div class="container" style="text-align: center;">
+  <img src="https://th.bing.com/th/id/OIP.SOcU51Md9drhkzlD8xyxygHaFM?pid=ImgDet&rs=1" alt="Turtle swimming" width="500" height="400">
+   </div>
+  <p>For a one-time donation of $1000, you can fund our research efforts and help us better understand sea turtle populations and their habitats.</p>
+</section>
+
+
+<section>
+  <h2>T-shirts</h2>
+   <div class="container" style="text-align: center;">
+  <img src="https://i.pinimg.com/originals/23/cf/d3/23cfd3f41f552188db6332091f569a12.jpg" alt="Turtle T-Shirt Sri Lanka" width="500" height="400">
+   </div>
+  
+  <p>Our T-shirts, which include our turtle conservation emblem and phrases, are created from eco-friendly fabrics and come in a variety of sizes and colors. Each t-shirt costs $10..</p>
+
+</section>
+<section>
+  <h2>Turtle Plushies</h2>
+   <div class="container" style="text-align: center;">
+  <img src="https://i5.walmartimages.com/asr/91f67746-790a-4972-a72c-ab2d92896758_1.6ba2345e3e1992d311a799588786842e.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff" alt="Turtle Plushies" width="500" height="400">
+   </div>
+  <p>Handcrafted by local artisans, our turtle plushies make perfect souvenirs and gifts for kids and adults alike.</p>
+  <ul>
+  <li><p>20m-10$</p></li>
+  <li><p>25m-15$</p></li>
+  <li><p>30m-20$</p></li>
+  <li><p>40m-30$</p></li>
+</ul>
+</section>
+<section>
+  <h2>Postcards and Prints</h2>
+   <div class="container" style="text-align: center;">
+<img src="https://www.kingwood.com/images/agile/870748_1467722813281.jpg" alt="example image" width="500" height="400">
+ </div>
+
+  <p>Featuring stunning photos of turtles and their natural habitats, our postcards and prints are a great way to spread awareness about turtle conservation.</p>
+  </section>
+<section>
+<h2>Make a Payment or Donation</h2>
+    <p>Please fill out the form below to make a payment or donation using your credit card or PayPal.</p>
+    <h2>Credit Card Payment</h2>
+<form id="payment-form" action="#" method="POST">
+  <h2>Payment Details</h2>
+  <div class="form-group">
+    <label for="card-number">Card Number:</label>
+    <input type="text" id="card-number" name="card-number" placeholder="Enter your card number" required>
+  </div>
+  <div class="form-group">
+    <label for="expiry-date">Expiry Date:</label>
+    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+  </div>
+  <div class="form-group">
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" name="cvv" placeholder="Enter the CVV code" required>
+  </div>
+  <h3>Payment Method</h3>
+  <div class="form-group">
+    <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+    <label for="credit-card">Credit Card</label>
+  </div>
+  <div class="form-group">
+    <input type="radio" id="paypal" name="payment-method" value="paypal">
+    <label for="paypal">PayPal</label>
+  </div>
+  <div class="form-group">
+    <button type="submit">Submit Payment</button>
+  </div>
+</form>
+
+
+
+
+</section>
+  <footer>
+    <p>&copy; 2023 Turtle Conservation in Sri Lanka</p>
+  </footer>
+
+
+
+	
+
+  </body>
+</html>

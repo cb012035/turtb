@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sri Lanka Sea Turtles</title>
+	<style>
+	
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+			background-color:  #333;
+			color: white;
+		}
+body {
+            background-image: url('black-turtle-on-seashore.jpg');
+            background-size: 500px 700px;
+            background-position: center;
+			}
+		.menu-btn {
+			display: none;
+			cursor: pointer;
+			position: relative;
+			padding: 20px;
+			z-index: 1;
+		}
+
+		.menu-btn span {
+			display: block;
+			background-color: white;
+			height: 2px;
+			width: 25px;
+			margin-bottom: 5px;
+		}
+
+		nav {
+			flex: 1;
+			text-align: right;
+		}
+
+		nav a {
+    color:#fff;
+    text-decoration: none;
+  margin-left: 20px;
+   
+    transition: color 0.3s ease;
+    animation-name: example;
+    animation-duration: 3s;
+}
+nav a:hover {
+    color: #0077be;
+}
+@keyframes example {
+    0%   {color: #fff;}
+    50%  {color: #00BFFF;}
+    100% {color: #fff;}
+		}
+        	section {
+			margin: 20px auto;
+			padding: 20px;
+			max-width: 700px;
+			background-color: white;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+			text-align: justify;
+            }
+section video {
+      max-width: 100%;
+      height: auto;
+    }
+		/* For desktop */
+header img {
+  width: 75px;
+  height: 75px;
+}
+
+
+        @media (max-width: 500px) {
+            img {
+                width: 100%;
+                height: auto;
+            }
+header img {
+    width: 55px;
+    height: 55px;
+  }
+
+
+
+			.menu-btn {
+				display: block;
+			}
+
+			nav {
+				display: none;
+				flex-basis: 100%;
+				margin: 20px 0;
+			}
+
+			nav.active {
+				display: block;
+			}
+
+			nav a {
+				display: block;
+				margin: 10px 0;
+			}
+		}
+		
+		footer {
+			background-color: #333;
+			color: white;
+			padding: 10px;
+			text-align: center;
+		}
+
+		footer p {
+			margin: 0;
+			}
+.fadeout {
+    opacity: 1;
+    animation-name: fadeout;
+    animation-duration: 2s;
+}
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+		 
+	</style>
+
+
+</head>
+<body>
+	<header>
+	
+		<h1><img src="logo.png" alt="" >Kosgoda Turtle Hatchery</h1>
+		<div class="menu-btn">
+			<span></span>
+		</div>
+		<nav>
+			<a href="homepageandroid.html">Home</a>
+				<a href="getinnolveandroid.html">Get involved</a>
+				<a href="6android.html">Bentota Turtle Hatcheries</a>
+				<a href="https://www.oceanicsociety.org/our-work/sea-turtle-conservation/">Sea Turtle Conservation</a>
+				<a href="pag2android.html">Contact Us</a>
+		</nav>
+	</header>
+
+<script>
+    // toggle navigation menu
+    var menuBtn = document.querySelector('.menu-btn');
+    var nav = document.querySelector('nav');
+
+    menuBtn.addEventListener('click', function() {
+        nav.classList.toggle('active');
+    });
+    </script>
+<section>
+  <h2>Introduction</h2>
+  <p><i>Welcome to Kosgoda Turtle Hatchery, where we work to protect and conserve sea turtles.The Kosgoda Turtle Hatchery is a conservation project in the Sri Lankan seaside town of Kosgoda. The hatchery was founded in 1981 in order to save the country's turtle population from extinction.</i></p>
+  <img src="https://infolanka.lk/wp-content/uploads/2018/12/kosgoda-sea-turtle-hatchery.jpg" alt="Kosgoda Turtle Hatchery, Sri Lanka" width="700" height="400">
+ <p><i> The hatchery takes turtle eggs that have been laid on neighboring beaches and keeps them safe until they hatch. The newborn turtles are then returned to the sea. The hatchery also provides medical treatment and rehabilitation to damaged and sick turtles before releasing them back into the wild.</i></p>
+
+<p><i>The Kosgoda Turtle Hatchery is also an educational center in addition to its conservation initiatives. Visitors can learn about the various turtle species native to Sri Lanka as well as the risks they face. In addition, the hatchery performs research.</i></p>
+</section>
+
+
+
+      <section id="threats">
+        <h2>Threats to Sea Turtles</h2>
+        <p>Sea turtles face many threats, including:</p>
+        <ul>
+          <li>Predation of nests by animals such as dogs and raccoons</li>
+          <li>Incidental capture in fishing gear</li>
+          <li>Pollution of their habitats</li>
+        </ul>
+      </section>
+      <section id="conservation">
+        <h2>Conservation Efforts</h2>
+        <p>At Kosgoda Turtle Hatchery, we take several measures to protect sea turtles and their habitats:</p>
+        <ul>
+          <li>Patrolling the beach to protect nests and relocate them if necessary</li>
+          <li>Releasing rehabilitated sea turtles back into the wild</li>
+          <li>Conducting educational programs to raise awareness about sea turtle conservation</li>
+        </ul>
+       <a href="https://www.oceanicsociety.org/our-work/sea-turtle-conservation/">Sea Turtle Conservation</a>
+	    </section>
+	   <section>
+		<h2>Kosgoda Turtle Hatchery</h2>
+    
+	  
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+  <iframe src="https://www.youtube.com/embed/kEZoNXjLhY0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+</div>
+
+
+
+
+</section>
+      <section id="gallery">
+        <h2>Photo Gallery</h2>
+      
+  <img src="http://www.kosgodaseaturtle.org/files/cache/flickr_cached_img_632971a5845b1ca8c2c6dfb8dc3af484_600x600.jpg" alt="Kosgoda Turtle Hatchery" width="700" height="400" class="fadeout">
+  <img src="http://www.kosgodaseaturtle.org/files/cache/flickr_cached_img_f9431d570487027779542bfd06764e22_600x600.jpg" alt="Kosgoda Turtle Hatchery" width="700" height="400" class="fadeout">
+  <img src="http://www.kosgodaseaturtle.org/files/cache/flickr_cached_img_4db6e8959a41e5439c72e66f0400933d_600x600.jpg" alt="Kosgoda Turtle Hatchery" width="700" height="400" class="fadeout">
+</section>
+
+   
+    <footer>
+      <p>&copy;  Turtle Conservation in Sri Lanka</p>
+    </footer>
+    <script src="kosgoda-animation.js"></script>
+ 
+
+	<script src="script.js"></script>
+  
+</body>
+</html>
