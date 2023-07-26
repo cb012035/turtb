@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif!important;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .mainscreen {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #DFDBE5;
+            background-image: url("https://wallpaperaccess.com/full/3063067.png");
+            color: #963E7B;
+        }
+
+        .card {
+            width: 60rem;
+            margin: auto;
+            background: white;
+            position: center;
+            align-self: center;
+            top: 50rem;
+            border-radius: 1.5rem;
+            box-shadow: 4px 3px 20px #3535358c;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .leftside {
+            background: #030303;
+            width: 25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-top-left-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
+        }
+
+        .product {
+            object-fit: cover;
+            width: 20em;
+            height: 20em;
+            border-radius: 100%;
+        }
+
+        .rightside {
+            background-color: #ffffff;
+            width: 35rem;
+            border-bottom-right-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            padding: 1rem 2rem 3rem 3rem;
+        }
+
+        p {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin: 0.8rem 0;
+        }
+
+        .inputbox {
+            color: #030303;
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            border-bottom: 1.5px solid #ccc;
+            margin-bottom: 1rem;
+            border-radius: 0.3rem;
+            font-family: 'Roboto', sans-serif;
+            color: #615a5a;
+            font-size: 1.1rem;
+            font-weight: 500;
+            outline: none;
+        }
+
+        .expcvv {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 0.6rem;
+        }
+
+        .expcvv_text {
+            padding-right: 1rem;
+        }
+
+        .expcvv_text2 {
+            padding: 0 1rem;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #753370 0%, #298096 100%);
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            width: 100%;
+            letter-spacing: 0.11rem;
+            outline: none;
+        }
+
+        .button:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 3px 3px 6px #38373785;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .card {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .leftside, .rightside {
+                width: 100%;
+                border-radius: 0; /* Remove border radius for mobile layout */
+            }
+
+            .rightside {
+                padding: 1rem; /* Reduce padding for mobile layout */
+            }
+
+            .product {
+                width: 100%;
+                max-width: 200px;
+                max-height: 200px;
+                border-radius: 0;
+                margin: 0 auto 1rem; /* Center the product image */
+            }
+
+            h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            p {
+                font-size: 1.1rem;
+                margin: 0.8rem 0;
+            }
+
+            .inputbox {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .expcvv {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .expcvv_text,
+            .expcvv_text2 {
+                padding: 0;
+            }
+
+            .button {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainscreen">
+        <div class="card">
+            <div class="leftside">
+                <img src="https://img.freepik.com/premium-vector/sea-turtle-silhouette-neon-line-art-style-abstract-hologram-digital-outline-swimming-tortoise-3d-vector-illustration-wild-ocean-turtle-top-view-dark-blue-background_177953-343.jpg?w=2000"
+                    class="product" alt="turtle" />
+            </div>
+            <div class="rightside">
+                <form action="confirm.html" id="paymentForm">
+                    <h1>CheckOut</h1>
+                    <h2>Payment Information</h2>
+                    <p>Cardholder Name</p>
+                    <input type="text" class="inputbox" name="name" required />
+                    <p>Card Number</p>
+                    <input type="number" class="inputbox" name="card_number" id="card_number" required />
+                    <p>Card Type</p>
+                    <select class="inputbox" name="card_type" id="card_type" required>
+                        <option value="">--Select a Card Type--</option>
+                        <option value="Visa">Visa</option>
+                        <option value="RuPay">RuPay</option>
+                        <option value="MasterCard">MasterCard</option>
+                    </select>
+                    <div class="expcvv">
+                        <p class="expcvv_text">Expiry</p>
+                        <input type="date" class="inputbox" name="exp_date" id="exp_date" required />
+                        <p class="expcvv_text2">CVV</p>
+                        <input type="password" class="inputbox" name="cvv" id="cvv" required />
+                    </div>
+                    <p></p>
+                    <button type="button" class="button" onclick="validateAndSubmit()">CheckOut</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateAndSubmit() {
+            var cardholderName = document.getElementsByName("name")[0].value;
+            var cardNumber = document.getElementById("card_number").value;
+
+            // Validate Cardholder Name: Must have at least 3 characters
+            if (cardholderName.length < 3) {
+                alert("Cardholder Name must have at least 3 characters.");
+                return;
+            }
+
+            // Validate Card Number: Must be exactly 16 digits long
+            if (cardNumber.length !== 16) {
+                alert("Card Number must be exactly 16 digits long.");
+                return;
+            }
+
+            // If the form is valid, submit the form
+            document.getElementById("paymentForm").submit();
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>
+

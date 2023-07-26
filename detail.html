@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details</title>
+  <style>
+    /* General styles */
+     body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://wallpapershome.com/images/pages/pic_h/274.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%;
+      background-color: rgba(242, 242, 242, 0.9); /* fallback background color if the image is not loaded or transparent */
+    }
+
+    /* Main container */
+    #details-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form header */
+    #details-form h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #007bff;
+    }
+
+    /* Form label */
+    #details-form label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    /* Form input and select fields */
+    #details-form input,
+    #details-form select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    /* Custom dropdown styles */
+    .custom-dropdown {
+      position: relative;
+    }
+
+    .custom-dropdown input {
+      cursor: pointer;
+    }
+
+    .dropdown-list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .dropdown-list.show {
+      display: block;
+    }
+
+    .dropdown-list li {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .dropdown-list li:hover {
+      background-color: #f5f5f5;
+    }
+
+    .dropdown-list img {
+      width: 24px;
+      height: 16px;
+      margin-left: 10px;
+    }
+
+    /* Submit button */
+    #details-form button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+      width: 100%;
+    }
+
+    #details-form button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Styling for error messages */
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="mainscreen">
+    <!-- <img src="https://image.freepik.com/free-vector/purple-background-with-neon-frame_52683-34124.jpg"  class="bgimg " alt="">--> 
+    <div class="card">
+      <div class="leftside">
+        <div class="cover-page">
+
+        </div>
+        <div class="main-content">
+          <div id="details-form">
+            <h2>Enter your details</h2>
+            <label for="full-name">Full Name *</label>
+            <input type="text" id="full-name" required>
+
+            <label for="mobile-number">Mobile Number *</label>
+            <div class="custom-dropdown">
+              <input type="text" id="country-code" required readonly>
+              <ul class="dropdown-list">
+                <!-- Populate these options dynamically using JavaScript -->
+              </ul>
+            </div>
+            <input type="tel" id="mobile-number" required>
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" required>
+
+            <label for="confirm-email">Confirm Email *</label>
+            <input type="email" id="confirm-email" required>
+            <span id="email-error-message" class="error-message"></span>
+
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <span id="gender-error-message" class="error-message"></span>
+
+            <button id="purchase-button">Continue with purchase</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+  function populateCountryCodes() {
+  // Your countryCodes array here
+  const countryCodes = [
+    { code: "+1", flagIcon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ39H0Cukp718pn2TAGaz8MwE2ClaEaFYyCprkOXuNs5Q-nTtVldtkqD1EP2ke2GgZYq8s&usqp=CAU" }, 
+    { code: "+44", flagIcon: "https://static.vecteezy.com/system/resources/previews/011/074/562/original/circle-flag-of-uk-free-vector.jpg" }, 
+    { code: "+94", flagIcon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIvK0QJLES7zWuho6Wsd9c_II3q6fghztMow&usqp=CAU.jpeg" }, 
+    { code: "+91", flagIcon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFaeUNLAKQ_D4nFCudBsp2ke9mTUSyq7dCJA&usqp=CAU" }, 
+  ];
+
+  const countrySelect = document.getElementById("country-code");
+  const dropdownList = document.querySelector(".dropdown-list");
+  const mobileNumberInput = document.getElementById("mobile-number");
+
+  // Function to close the custom dropdown
+  function closeDropdown() {
+    dropdownList.classList.remove("show");
+  }
+
+  // Loop through the countryCodes array and create custom dropdown items
+  countryCodes.forEach((country) => {
+    const listItem = document.createElement("li");
+    listItem.dataset.value = country.code;
+    listItem.innerHTML = `<span>${country.code}</span><img src="${country.flagIcon}" alt="Flag Icon">`;
+    listItem.addEventListener("click", () => {
+      countrySelect.value = country.code;
+      closeDropdown();
+    });
+    dropdownList.appendChild(listItem);
+  });
+
+  // Open the custom dropdown when the input is clicked
+  countrySelect.addEventListener("click", () => {
+    dropdownList.classList.toggle("show");
+  });
+
+  // Close the custom dropdown when the user clicks outside of it
+  document.addEventListener("click", (event) => {
+    if (!countrySelect.contains(event.target) && !dropdownList.contains(event.target)) {
+      // Validate the mobile number before closing the dropdown
+      const countryCode = countrySelect.value;
+      const mobileNumber = mobileNumberInput.value.trim();
+      const mobileNumberRegex = /^\d{8,15}$/; // Regular expression for mobile number validation
+
+      // Check if the mobile number starts with the selected country code and contains only numeric characters
+      if (!countryCode || !mobileNumber || !mobileNumber.startsWith(countryCode) || !mobileNumber.match(mobileNumberRegex)) {
+        alert("Please select a valid country code and enter a valid mobile number.");
+        return;
+      }
+
+      closeDropdown();
+    }
+  });
+}
+
+
+
+	  
+
+      // Function to close the custom dropdown
+      function closeDropdown() {
+        const dropdownList = document.querySelector(".dropdown-list");
+        dropdownList.classList.remove("show");
+      }
+
+  // Function to validate email and confirm email fields
+function validateEmail() {
+  const email = document.getElementById("email").value;
+  const confirmEmail = document.getElementById("confirm-email").value;
+  const emailErrorMessage = document.getElementById("email-error-message");
+
+  // Regular expression to match a valid email format
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(email)) {
+    emailErrorMessage.textContent = "Please enter a valid email address.";
+    return false;
+  } else if (email !== confirmEmail) {
+    emailErrorMessage.textContent = "Email addresses do not match.";
+    return false;
+  } else {
+    emailErrorMessage.textContent = ""; // Clear any previous error message
+    return true;
+  }
+}
+
+
+      function validateGender() {
+        const genderSelect = document.getElementById("gender");
+        const genderErrorMessage = document.getElementById("gender-error-message");
+
+        if (genderSelect.value === "") {
+          genderErrorMessage.textContent = "Please select a gender.";
+          return false;
+        } else {
+          genderErrorMessage.textContent = ""; // Clear any previous error message
+          return true;
+        }
+      }
+
+      // Call the populateCountryCodes function to populate the country code custom dropdown
+      populateCountryCodes();
+
+      // Add a click event listener to the purchase button
+      document.getElementById("purchase-button").addEventListener("click", function() {
+        // Perform any other form validations here
+
+        // Validate gender
+        if (!validateGender()) {
+          // If gender is not selected, do not proceed to the payment page
+          return;
+        }
+
+        // Validate email and confirm email
+        if (!validateEmail()) {
+          // If email and confirm email do not match, do not proceed to the payment page
+          return;
+        }
+
+        // Redirect to the desired page when the button is clicked
+        window.location.href = "payment.html"; // Replace with the actual payment page URL
+      });
+	  
+    </script>
+  </body>
+</html>

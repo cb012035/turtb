@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tickets</title>
+  <style>
+    /* Reset default margin and padding for better consistency */
+    body, h1, h2, table, th, td {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://wallpaperaccess.com/full/740895.jpg');
+      background-image: url('https://wallpaperaccess.com/full/740895.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%;
+      background-color: rgba(242, 242, 242, 0.9); /* fallback background color if the image is not loaded or transparent */
+	  }
+
+    /* Global styles for header and cover page */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #008080;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .cover-page {
+      text-align: center;
+      padding: 20px;
+      background-color: #008080;
+      color: #333;
+    }
+
+    .main-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styles for sections */
+    .main-content h2 {
+      margin: 0 0 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Calendar section */
+    .calendar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .calendar input {
+      width: 200px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    /* Guests section */
+    .guests div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .guests label {
+      width: 150px;
+    }
+
+    .guests button {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      background-color: #f2f2f2;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .guests input {
+      flex: 1;
+      width: 60px;
+      padding: 5px 10px;
+      font-size: 16px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    /* Duration section */
+    .duration select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    /* Pricing and summary tables */
+    table {
+      margin: 0 auto;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    /* Book now button */
+    #book-now-button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    #book-now-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #008080;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+</head>
+
+<body>
+  <div class="cover-page">
+    <h1>Buy Tickets</h1>
+  </div>
+  <div class="main-content">
+    <section class="dates">
+      <h2>Dates</h2>
+      <div class="calendar">
+        <input type="text" id="date-picker" placeholder="Select a date">
+      </div>
+    </section>
+    <section class="guests">
+      <h2>Guests</h2>
+      <div>
+        <label for="sl-adult">SL Adult:</label>
+        <button id="sl-adult-minus">-</button>
+        <input type="number" id="sl-adult" min="0" max="10" value="0">
+        <button id="sl-adult-plus">+</button>
+      </div>
+      <div>
+        <label for="sl-child">SL Child:</label>
+        <button id="sl-child-minus">-</button>
+        <input type="number" id="sl-child" min="0" max="10" value="0">
+        <button id="sl-child-plus">+</button>
+      </div>
+      <div>
+        <label for="foreigner-adult">Foreigner Adult:</label>
+        <button id="foreigner-adult-minus">-</button>
+        <input type="number" id="foreigner-adult" min="0" max="10" value="0">
+        <button id="foreigner-adult-plus">+</button>
+      </div>
+      <div>
+        <label for="foreigner-child">Foreigner Child:</label>
+        <button id="foreigner-child-minus">-</button>
+        <input type="number" id="foreigner-child" min="0" max="10" value="0">
+        <button id="foreigner-child-plus">+</button>
+      </div>
+      <div>
+        <label for="infant">Infant:</label>
+        <button id="infant-minus">-</button>
+        <input type="number" id="infant" min="0" max="10" value="0">
+        <button id="infant-plus">+</button>
+      </div>
+    </section>
+    <section class="duration">
+      <h2>Duration</h2>
+      <select id="duration-dropdown">
+        <!-- Options for time slots -->
+        <!-- Populate these options dynamically using JavaScript -->
+      </select>
+    </section>
+    <section class="pricing-table">
+      <h2>Pricing Table</h2>
+      <table>
+        <tr>
+          <th>Category</th>
+          <th>Charge per hour</th>
+        </tr>
+        <tr>
+          <td>Foreigner Adult</td>
+          <td>10 USD</td>
+        </tr>
+        <tr>
+          <td>Foreigner Child</td>
+          <td>5 USD</td>
+        </tr>
+        <tr>
+          <td>SL Adult</td>
+          <td>4 USD</td>
+        </tr>
+        <tr>
+          <td>SL Child</td>
+          <td>2 USD</td>
+        </tr>
+        <tr>
+          <td>Infant (SL or Foreigner) (under 4 years)</td>
+          <td>Free</td>
+        </tr>
+      </table>
+    </section>
+    <section class="summary-table">
+      <h2>Summary Table</h2>
+      <!-- Summary table to display the selected options and total payable -->
+      <!-- You can style this table using CSS -->
+      <table id="summary-table">
+        <!-- Summary table content will be updated dynamically by JavaScript -->
+      </table>
+    </section>
+  <button id="detail.html">Book now</button>
+
+	
+  
+ 
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
+  <script>
+  
+  <!-- ... (Previous HTML code remains unchanged) ... -->
+
+
+  // JavaScript code here
+  // ...
+
+  // Function to handle the "Book now" button click event
+  function handleBookNowButtonClick() {
+    const bookNowButton = document.getElementById("book-now-button");
+    bookNowButton.addEventListener("click", () => {
+      const selectedDate = localStorage.getItem("selectedDate");
+      const duration = durationDropdown.value;
+      const slAdults = document.getElementById("sl-adult").value;
+      const slChildren = document.getElementById("sl-child").value;
+      const foreignerAdults = document.getElementById("foreigner-adult").value;
+      const foreignerChildren = document.getElementById("foreigner-child").value;
+      const infants = document.getElementById("infant").value;
+
+      // Build the query parameters
+      const queryParams = new URLSearchParams({
+        selectedDate,
+        duration,
+        slAdults,
+        slChildren,
+        foreignerAdults,
+        foreignerChildren,
+        infants,
+      });
+
+      // Redirect to the next page with the selected data as query parameters
+      window.location.href = "detail.html?" + queryParams.toString();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // ... (Previous code remains unchanged) ...
+
+    // Load guest values from local storage and set them to the respective input fields
+    document.getElementById("sl-adult").value = localStorage.getItem("slAdults") || "0";
+    document.getElementById("sl-child").value = localStorage.getItem("slChildren") || "0";
+    document.getElementById("foreigner-adult").value = localStorage.getItem("foreignerAdults") || "0";
+    document.getElementById("foreigner-child").value = localStorage.getItem("foreignerChildren") || "0";
+    document.getElementById("infant").value = localStorage.getItem("infants") || "0";
+
+    // Call the functions to initialize the date picker, duration dropdown, and update the summary table initially
+    initializeDatePicker();
+    populateDurationDropdown();
+    updateSummaryTable();
+    handleGuestButtons();
+    handleBookNowButtonClick(); // Add the new function to handle the "Book now" button click event
+
+    // ... (The rest of the JavaScript code remains the same) ...
+  });
+
+    // JavaScript code here
+	   // Add a click event listener to the button
+        document.getElementById("detail.html").addEventListener("click", function() {
+            // Redirect to the desired page when the button is clicked
+            window.location.href = "detail.html"; // 
+        });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const calendarContainer = document.querySelector(".calendar");
+      const guestsSection = document.querySelector(".guests");
+      const durationDropdown = document.getElementById("duration-dropdown");
+      const pricingTableSection = document.querySelector(".pricing-table");
+      const summaryTableSection = document.querySelector(".summary-table");
+      const bookNowButton = document.getElementById("book-now-button");
+
+      // Function to initialize Flatpickr date picker
+      function initializeDatePicker() {
+        const datePicker = flatpickr("#date-picker", {
+          mode: "single", // Allow only single date selection
+          dateFormat: "Y-m-d", // Date format: Year-Month-Day (e.g., 2023-07-23)
+          onClose: function (selectedDates, dateStr, instance) {
+            // Store the selected date in the browser's local storage
+            localStorage.setItem("selectedDate", dateStr);
+          },
+        });
+
+        // Check if there is a previously selected date in the local storage and set it in the date picker
+        const storedDate = localStorage.getItem("selectedDate");
+        if (storedDate) {
+          datePicker.setDate(storedDate);
+        }
+      }
+
+      // Function to dynamically populate the duration dropdown options based on the time slots
+      function populateDurationDropdown() {
+        const startTime = 7; // Start time in 24-hour format (07:00 am)
+        const endTime = 18; // End time in 24-hour format (06:00 pm)
+        const peakStartTime = 15; // Peak start time in 24-hour format (03:00 pm)
+        const peakEndTime = 18; // Peak end time in 24-hour format (06:00 pm)
+
+        const durationDropdown = document.getElementById("duration-dropdown");
+
+        // Function to format time in 24-hour format to 12-hour format
+        function formatTime(hour) {
+          return `${hour % 12 || 12}:00 ${hour < 12 ? "am" : "pm"}`;
+        }
+
+        for (let hour = startTime; hour < endTime; hour++) {
+          const isPeak = hour >= peakStartTime && hour <= peakEndTime;
+
+          // Create an option for each hour-based time slot
+          const option = document.createElement("option");
+          option.value = `${formatTime(hour)} - ${formatTime(hour + 1)} ${isPeak ? "(Peak)" : ""}`;
+          option.textContent = option.value;
+          durationDropdown.appendChild(option);
+        }
+      }
+
+      // Function to update the summary table with the selected options and total payable
+      function updateSummaryTable() {
+        const summaryTable = document.getElementById("summary-table");
+        const selectedDate = localStorage.getItem("selectedDate");
+        const duration = durationDropdown.value;
+        const slAdults = parseInt(document.getElementById("sl-adult").value);
+        const slChildren = parseInt(document.getElementById("sl-child").value);
+        const foreignerAdults = parseInt(document.getElementById("foreigner-adult").value);
+        const foreignerChildren = parseInt(document.getElementById("foreigner-child").value);
+        const infants = parseInt(document.getElementById("infant").value);
+
+        // Function to calculate the total payable amount
+        function calculateTotalPayable() {
+          const priceForeignerAdult = 10;
+          const priceForeignerChild = 5;
+          const priceSLAdult = 4;
+          const priceSLChild = 2;
+
+          const totalForeignerAdult = foreignerAdults * priceForeignerAdult;
+          const totalForeignerChild = foreignerChildren * priceForeignerChild;
+          const totalSLAdult = slAdults * priceSLAdult;
+          const totalSLChild = slChildren * priceSLChild;
+          const totalInfant = 0; // Infants are free
+
+          return totalForeignerAdult + totalForeignerChild + totalSLAdult + totalSLChild + totalInfant;
+        }
+
+        const totalPayable = calculateTotalPayable();
+
+        // Update the summary table content
+        summaryTable.innerHTML = `
+          <tr>
+            <td>Date:</td>
+            <td>${selectedDate}</td>
+          </tr>
+          <tr>
+            <td>Duration:</td>
+            <td>${duration}</td>
+          </tr>
+          <tr>
+            <td>Foreigner Adult:</td>
+            <td>${foreignerAdults}</td>
+          </tr>
+          <tr>
+            <td>Foreigner Child:</td>
+            <td>${foreignerChildren}</td>
+          </tr>
+          <tr>
+            <td>SL Adult:</td>
+            <td>${slAdults}</td>
+          </tr>
+          <tr>
+            <td>SL Child:</td>
+            <td>${slChildren}</td>
+          </tr>
+          <tr>
+            <td>Infant:</td>
+            <td>${infants}</td>
+          </tr>
+          <tr>
+            <td>Total Payable:</td>
+            <td>${totalPayable} USD</td>
+          </tr>
+        `;
+      }
+
+      // Function to handle the plus and minus buttons for incrementing and decrementing guests
+      function handleGuestButtons() {
+        const buttons = guestsSection.querySelectorAll("button");
+        buttons.forEach((button) => {
+          const input = button.parentElement.querySelector("input");
+          const step = parseInt(input.step) || 1;
+
+          button.addEventListener("click", () => {
+            if (button.id.includes("plus")) {
+              input.value = Math.min(parseInt(input.value) + step, parseInt(input.max));
+            } else if (button.id.includes("minus")) {
+              input.value = Math.max(parseInt(input.value) - step, parseInt(input.min));
+            }
+
+            updateSummaryTable();
+          });
+        });
+      }
+
+      // Call the functions to initialize the date picker, duration dropdown, and update the summary table initially
+      initializeDatePicker();
+      populateDurationDropdown();
+      updateSummaryTable();
+      handleGuestButtons();
+
+      // ... (The rest of the JavaScript code remains the same) ...
+    });
+  </script>
+   
+</body>
+</html>
+
+
